@@ -1,0 +1,68 @@
+﻿<Page x:Class="AdminTallerNenufar.Views.RegistroEquipoView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Registro de Equipo" Background="White">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="LabelEstilo">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,0,0,3"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Paso 2: Datos del Equipo" FontSize="24" FontWeight="Bold" Foreground="#2C3E50"/>
+            <TextBlock x:Name="lblClienteID" Text="Registrando equipo para el cliente ID: " Foreground="#7F8C8D"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <UniformGrid Columns="2">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Tipo de Equipo (Nombre)" Style="{StaticResource LabelEstilo}"/>
+                    <TextBox x:Name="txtNombreEq" ToolTip="Ej: Televisor, Corneta, Celular"/>
+
+                    <TextBlock Text="Marca" Style="{StaticResource LabelEstilo}"/>
+                    <TextBox x:Name="txtMarca"/>
+
+                    <TextBlock Text="Modelo" Style="{StaticResource LabelEstilo}"/>
+                    <TextBox x:Name="txtModelo"/>
+                </StackPanel>
+
+                <StackPanel Margin="10">
+                    <TextBlock Text="Categoría" Style="{StaticResource LabelEstilo}"/>
+                    <ComboBox x:Name="cbCategoria" Height="32" Margin="0,0,0,12">
+                        <ComboBoxItem Content="Audio"/>
+                        <ComboBoxItem Content="Video"/>
+                        <ComboBoxItem Content="Computación"/>
+                        <ComboBoxItem Content="Telefonía"/>
+                        <ComboBoxItem Content="Línea Blanca"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Subcategoría" Style="{StaticResource LabelEstilo}"/>
+                    <TextBox x:Name="txtSubCat"/>
+
+                    <TextBlock Text="Descripción de la falla" Style="{StaticResource LabelEstilo}"/>
+                    <TextBox x:Name="txtDesc" Height="80" TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top" Padding="5"/>
+                </StackPanel>
+            </UniformGrid>
+        </ScrollViewer>
+
+        <Button Grid.Row="2" Content="Finalizar e Imprimir Comprobante" 
+                Height="45" Width="300" HorizontalAlignment="Right"
+                Background="#2980B9" Foreground="White" FontWeight="Bold"
+                Click="BtnFinalizar_Click"/>
+    </Grid>
+</Page>

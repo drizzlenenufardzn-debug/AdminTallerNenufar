@@ -1,0 +1,36 @@
+﻿<Page x:Class="AdminTallerNenufar.Views.ListaEquiposView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Lista de Equipos" Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Equipos en Taller" FontSize="28" FontWeight="Bold" Foreground="#2C3E50"/>
+            <TextBlock Text="Listado general de reparaciones pendientes y finalizadas." Foreground="#7F8C8D"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgEquipos" Grid.Row="1" 
+                  AutoGenerateColumns="False" 
+                  IsReadOnly="True" 
+                  Background="White" 
+                  BorderBrush="#DCDDE1"
+                  RowHeight="30"
+                  AlternatingRowBackground="#F5F6FA"
+                  CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding IdEquipo}" Width="50"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}" Width="150"/>
+                <DataGridTextColumn Header="Equipo" Binding="{Binding NombreEquipo}" Width="120"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca}" Width="100"/>
+                <DataGridTextColumn Header="Modelo" Binding="{Binding Modelo}" Width="100"/>
+                <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria}" Width="100"/>
+                <DataGridTextColumn Header="Fecha Ingreso" Binding="{Binding FechaIngreso}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

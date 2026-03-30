@@ -1,0 +1,100 @@
+﻿<Page x:Class="AdminTallerNenufar.Views.RegistroClienteView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AdminTallerNenufar.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="700"
+      Title="Registro de Cliente - Nenúfar Market" Background="White">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="LabelEstilo">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#34495E"/>
+            <Setter Property="Margin" Value="0,0,0,3"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8,0"/>
+            <Setter Property="BorderBrush" Value="#BDC3C7"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="40,30,40,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Paso 1: Datos del Cliente" FontSize="26" FontWeight="Bold" Foreground="#2C3E50"/>
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Text="Al ingresar la cédula, el sistema buscará si el cliente ya está registrado." 
+                   FontSize="13" Foreground="#95A5A6" Margin="0,5,0,30"/>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel MaxWidth="450" HorizontalAlignment="Left">
+
+                <TextBlock Text="Cédula / RIF (Presione TAB para buscar)" Style="{StaticResource LabelEstilo}" Foreground="#2980B9"/>
+                <TextBox x:Name="TxtCedula" 
+                         BorderBrush="#2980B9" 
+                         BorderThickness="1.5" 
+                         ToolTip="Ingrese la cédula y presione Tabulador para autocompletar."/>
+
+                <TextBlock Text="Nombre" Style="{StaticResource LabelEstilo}"/>
+                <TextBox x:Name="TxtNombre"/>
+
+                <TextBlock Text="Apellido" Style="{StaticResource LabelEstilo}"/>
+                <TextBox x:Name="TxtApellido"/>
+
+                <TextBlock Text="Teléfono" Style="{StaticResource LabelEstilo}"/>
+                <TextBox x:Name="TxtTelefono"/>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="3" BorderBrush="#ECF0F1" BorderThickness="0,1,0,0" Padding="0,20,0,0">
+            <DockPanel LastChildFill="False">
+                <Button x:Name="BtnSiguiente" 
+                        Content="Siguiente: Datos del Equipo →" 
+                        DockPanel.Dock="Right"
+                        Width="250" Height="45" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        FontSize="14"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="BtnSiguiente_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#27AE60"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#2ECC71"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Page>
